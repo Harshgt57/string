@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+void sol(string t,string s,int i,int n)
+{
+    if(i==n)
+    {
+        //t[j]='\0';
+        cout<<t<<endl;
+        return;
+    }
+    char a;
+    t=t+s[i];
+    sol(t,s,i+1,n);
+    t.pop_back();
+    a=s[i]-32;
+    t=t+a;
+    sol(t,s,i+1,n);
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    sol(" ",s,0,s.length());
+    return 0;
+}
