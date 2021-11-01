@@ -1,0 +1,38 @@
+
+#include <iostream>
+
+using namespace std;
+void sol(string t,string s,int i,int n)
+{
+    if(i==n)
+    {
+        //t[j]='\0';
+        cout<<t<<endl;
+        return;
+    }
+    char a=s[i];
+    if(a>=65&&a<=90||a>=97&&a<=122)
+    {
+    t=t+s[i];
+    sol(t,s,i+1,n);
+    t.pop_back();
+
+    if(a>=97&&a<=122)
+        a=s[i]-32;
+    else
+        a=s[i]+32;
+    t=t+a;
+    sol(t,s,i+1,n);
+    }
+    else
+    {
+        t=t+s[i];
+        sol(t,s,i+1,n);
+    }
+}
+int main()
+{
+    string s="a1B2";
+    sol(" ",s,0,s.length());
+    return 0;
+}
