@@ -1,0 +1,47 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+void par(string t,int i,int j)
+{
+    if(i==0&&j==0)
+    {
+        cout<<t<<endl;
+        return;
+    }
+    if(i==j)
+    {
+        t=t+"(";
+        par(t,i-1,j);
+    }
+    else if(i==0)
+    {
+        t=t+")";
+        par(t,i,j-1);
+    }
+    else
+    {
+        t=t+"(";
+        par(t,i-1,j);
+        t.pop_back();
+        t=t+")";
+        par(t,i,j-1);
+    }
+}
+int main()
+{
+    char a='(';
+    string t="";
+    t=t+a;
+    par(t,2,3);
+    return 0;
+}
+
