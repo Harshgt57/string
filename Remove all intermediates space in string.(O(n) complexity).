@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string s;
+    int i=0,j=0,e=0,k,l=0,m,n;
+    getline(cin,s);
+    for(e=0;e<s.length();)
+    {
+        if(s[e]==' ')
+        {
+        e++;
+        l++;
+        }
+        else if(e!=j)
+        {
+            s[j]=s[e];
+            e++;
+            j++;
+        }
+        else
+        {
+            e++;
+            j++;
+        }
+    }
+    while(i<l)
+    {
+        s.pop_back();
+        i++;
+    }
+    cout<<s;
+    return 0;
+}
